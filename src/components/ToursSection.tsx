@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { toast } from "sonner";
 
 const ToursSection = () => {
   const tours = [
@@ -59,8 +60,18 @@ const ToursSection = () => {
     }
   };
 
+  const handleBooking = (tourTitle: string) => {
+    toast.success(
+      `Заявка на тур "${tourTitle}" отправлена! Мы свяжемся с вами в ближайшее время.`,
+    );
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+    <section
+      id="tours"
+      className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -130,7 +141,10 @@ const ToursSection = () => {
               </CardContent>
 
               <CardFooter>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  onClick={() => handleBooking(tour.title)}
+                >
                   Забронировать тур
                 </Button>
               </CardFooter>

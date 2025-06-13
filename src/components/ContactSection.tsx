@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Icon from "@/components/ui/icon";
+import { toast } from "sonner";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -31,8 +32,27 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Простая валидация
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Пожалуйста, заполните все обязательные поля");
+      return;
+    }
+
     console.log("Форма отправлена:", formData);
-    // Здесь будет логика отправки формы
+    toast.success(
+      "Заявка успешно отправлена! Мы свяжемся с вами в течение часа.",
+    );
+
+    // Очистка формы
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      tour: "",
+      date: "",
+      message: "",
+    });
   };
 
   const contactInfo = [
@@ -59,7 +79,10 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-blue-100">
+    <section
+      id="contact"
+      className="py-20 px-4 bg-gradient-to-b from-blue-50 to-blue-100"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

@@ -3,6 +3,7 @@ import ToursSection from "@/components/ToursSection";
 import GallerySection from "@/components/GallerySection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import { Toaster } from "sonner";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <GallerySection />
       <AboutSection />
       <ContactSection />
+      <Toaster position="top-right" />
     </div>
   );
 };

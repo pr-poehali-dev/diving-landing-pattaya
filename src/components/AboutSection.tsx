@@ -31,7 +31,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section id="about" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}

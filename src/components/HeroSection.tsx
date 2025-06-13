@@ -28,6 +28,11 @@ const HeroSection = () => {
           <Button
             size="lg"
             className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 text-lg"
+            onClick={() =>
+              document
+                .getElementById("tours")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             <Icon name="Waves" className="mr-2" />
             Забронировать тур
@@ -36,6 +41,11 @@ const HeroSection = () => {
             variant="outline"
             size="lg"
             className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg"
+            onClick={() =>
+              document
+                .getElementById("gallery")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             <Icon name="Play" className="mr-2" />
             Смотреть видео
@@ -60,7 +70,14 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+        onClick={() =>
+          document
+            .getElementById("tours")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
         <Icon name="ChevronDown" className="text-white w-8 h-8" />
       </div>
     </section>
